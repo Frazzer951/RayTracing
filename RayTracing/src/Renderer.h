@@ -1,8 +1,7 @@
 #pragma once
 
+#include <glm/glm.hpp>
 #include <memory>
-
-#include "glm/glm.hpp"
 
 #include "Walnut/Image.h"
 

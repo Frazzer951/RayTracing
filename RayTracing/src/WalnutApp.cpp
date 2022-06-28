@@ -33,7 +33,6 @@ public:
                     ImVec2( 0, 1 ),
                     ImVec2( 1, 0 ) );
 
-
     ImGui::End();
     ImGui::PopStyleVar();
 
@@ -66,13 +65,13 @@ Walnut::Application * Walnut::CreateApplication( int argc, char ** argv )
   app->PushLayer<ExampleLayer>();
   app->SetMenubarCallback( [app]()
                            {
-    if (ImGui::BeginMenu("File"))
-    {
-      if (ImGui::MenuItem("Exit"))
-      {
-        app->Close();
-      }
-      ImGui::EndMenu();
-    } } );
+		if (ImGui::BeginMenu("File"))
+		{
+			if (ImGui::MenuItem("Exit"))
+			{
+				app->Close();
+			}
+			ImGui::EndMenu();
+		} } );
   return app;
 }
