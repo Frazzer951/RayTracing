@@ -14,6 +14,7 @@ public:
   {
     ImGui::Begin( "Settings" );
     ImGui::Text( "Last render: %.3fms", m_LastRenderTime );
+    ImGui::Text( "FPS: %.3f", m_FPS );
     if( ImGui::Button( "Render" ) )
     {
       Render();
@@ -47,6 +48,7 @@ public:
     m_Renderer.Render();
 
     m_LastRenderTime = timer.ElapsedMillis();
+    m_FPS = 1000.0 / m_LastRenderTime;
   }
 
 private:
@@ -54,6 +56,7 @@ private:
   uint32_t m_ViewportWidth = 0, m_ViewportHeight = 0;
 
   float m_LastRenderTime = 0.0f;
+  float m_FPS = 0.0f;
 };
 
 Walnut::Application * Walnut::CreateApplication( int argc, char ** argv )
