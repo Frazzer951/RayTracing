@@ -74,7 +74,6 @@ glm::vec4 Renderer::PerPixel( glm::vec2 coord )
   // Quadratic forumula discriminant:
   // b^2 - 4ac
 
-
   float discriminant = b * b - 4.0f * a * c;
   if( discriminant < 0.0f )
     return glm::vec4( 0, 0, 0, 1 );
