@@ -101,15 +101,14 @@ glm::vec4 Renderer::TraceRay( const Scene & scene, const Ray & ray )
   if( closestSphere == nullptr )
     return glm::vec4( 0.0f, 0.0f, 0.0f, 1.0f );
 
-  glm::vec3 origin = ray.Origin - closestSphere->Position;
-
+  glm::vec3 origin   = ray.Origin - closestSphere->Position;
   glm::vec3 hitPoint = origin + ray.Direction * hitDistance;
   glm::vec3 normal   = glm::normalize( hitPoint );
 
   glm::vec3 lightDir       = glm::normalize( glm::vec3( -1, -1, -1 ) );
   float     lightIntensity = glm::max( glm::dot( normal, -lightDir ), 0.0f );    // == cos(angle)
 
-  glm::vec3 sphereColor = closestSphere->Albeido;
+  glm::vec3 sphereColor = closestSphere->Albedo;
   sphereColor *= lightIntensity;
   return glm::vec4( sphereColor, 1.0f );
 }
